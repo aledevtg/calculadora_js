@@ -1,8 +1,13 @@
+import Calculator from './calculator';
 import './App.css';
 
 function App() {
   return (
-    <h1 id="titule"> Calculator by Chowder</h1>
+    <div>
+    <h1 id="titule"> Calculator by Chowder </h1>
+    <Calculator />
+    </div>
+    
   );
 }
 
