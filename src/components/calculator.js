@@ -1,33 +1,69 @@
 import './styles/calculator.css';
+import Button from './commons/Buttons';
+import { useState } from 'react';
 
-
-const Calculator = (props) => {
-
+const Calculator = () => {
+    const [operacion,setOperacion] = useState("");
     return(
-        <div class="container"> 
-            <div class="comp-1"> 
-                <button id="ce-1"> CE </button>
-                <div class="screen">
-                    <h3 class="res">{props.res}</h3>
+        <div className="container"> 
+            <div className="comp-1"> 
+                <button id="ce-1"onClick= {() => {
+                    setOperacion("");
+                }}> CE </button>
+                <div className="screen">
+                    <h3 className="res">{operacion}</h3>
                 </div>
             </div>
-            <div class="btn-1-op" id="num_sim"> 
-                <button class="type-1-sim" value="7">7</button>
-                <button class="type-1-sim" value="8">8</button>
-                <button class="type-1-sim" value="9">9</button>
-                <button class="type-1-sim" id="color-btn" value="/">/</button>
-                <button class="type-1-sim" value="4">4</button>
-                <button class="type-1-sim" value="5">5</button>
-                <button class="type-1-sim" value="6">6</button>
-                <button class="type-1-sim" id="color-btn" value="*">*</button>
-                <button class="type-1-sim" value="1">1</button>
-                <button class="type-1-sim" value="2">2</button>
-                <button class="type-1-sim" value="3">3</button>
-                <button class="type-1-sim" id="color-btn" value="-">-</button>
-                <button class="type-1-sim" value="0">0</button>
-                <button class="type-1-sim" value=".">.</button>
-                <button class="type-1-sim" id="color-btn">=</button>
-                <button class="type-1-sim" id="color-btn" value="+">+</button>
+            <div className="btn-1-op" id="num_sim"> 
+                <Button label="7" accion = {() => {
+                    setOperacion(`${operacion} 7`);
+                }}/> 
+                <Button label="8"  accion = {() => {
+                    setOperacion(`${operacion} 8`);
+                }}/> 
+                <Button label="9" accion = {() => {
+                    setOperacion(`${operacion} 9`);
+                }}/> 
+                <Button label="/" idName="color-btn"  accion = {() => {
+                    setOperacion(`${operacion} /`);
+                }}/> 
+                <Button label="4"  accion = {() => {
+                    setOperacion(`${operacion} 4`);
+                }}/> 
+                <Button label="5"  accion = {() => {
+                    setOperacion(`${operacion} 5`);
+                }}/> 
+                <Button label="6"  accion = {() => {
+                    setOperacion(`${operacion} 6`);
+                }}/> 
+                <Button label="*" idName="color-btn"  accion = {() => {
+                    setOperacion(`${operacion} *`);
+                }}/> 
+                <Button label="1"  accion = {() => {
+                    setOperacion(`${operacion} 1`);
+                }}/>  
+                <Button label="2"  accion = {() => {
+                    setOperacion(`${operacion} 2`);
+                }}/> 
+                <Button label="3"  accion = {() => {
+                    setOperacion(`${operacion} 3`);
+                }}/> 
+                <Button label="-" idName="color-btn"  accion = {() => {
+                    setOperacion(`${operacion} -`);
+                }}/> 
+                <Button label="0"  accion = {() => {
+                    setOperacion(`${operacion} 0`);
+                }}/>  
+                <Button label="."  accion = {() => {
+                    setOperacion(`${operacion}.`);
+                }}/> 
+                <Button label="=" idName="color-btn" accion={() => {
+                    const resultado = eval(operacion);
+                    setOperacion(resultado);
+                }}/> 
+                <Button label="+" idName="color-btn" accion = {() => {
+                    setOperacion(`${operacion} +`);
+                }}/>  
                 </div>
         </div>
     );
