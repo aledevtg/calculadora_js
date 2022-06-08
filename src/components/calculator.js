@@ -68,7 +68,7 @@ const Calculator = () => {
                             let parse = arr.toString().replaceAll(',', '');
                             const resultado = eval(parse);
                             setOperacion(resultado);
-                        }
+                        } 
                     } else {
                         setOperacion("");
                     }
