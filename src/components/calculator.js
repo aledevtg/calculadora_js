@@ -15,19 +15,19 @@ function Calculator(){
                 <button class="type-1-sim">7</button>
                 <button class="type-1-sim">8</button>
                 <button class="type-1-sim">9</button>
-                <button class="type-1-sim">/</button>
+                <button class="type-1-sim" id="color-btn">/</button>
                 <button class="type-1-sim">4</button>
                 <button class="type-1-sim">5</button>
                 <button class="type-1-sim">6</button>
-                <button class="type-1-sim">*</button>
+                <button class="type-1-sim" id="color-btn">*</button>
                 <button class="type-1-sim">1</button>
                 <button class="type-1-sim">2</button>
                 <button class="type-1-sim">3</button>
-                <button class="type-1-sim">-</button>
+                <button class="type-1-sim" id="color-btn">-</button>
                 <button class="type-1-sim">0</button>
                 <button class="type-1-sim">.</button>
-                <button class="type-1-sim">=</button>
-                <button class="type-1-sim">+</button>
+                <button class="type-1-sim" id="color-btn">=</button>
+                <button class="type-1-sim" id="color-btn">+</button>
                 </div>
         </div>
     );
