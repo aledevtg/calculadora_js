@@ -1,4 +1,4 @@
-import './calculator.css';
+import './styles/calculator.css';
 
 
 function Calculator(){
