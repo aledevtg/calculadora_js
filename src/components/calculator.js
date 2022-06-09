@@ -62,16 +62,6 @@ const Calculator = () => {
                     if (pos > 0) {
                         let arr = operacion.split('');
                         let last = arr[arr.length - 1];
-                        let first = arr[0];
-                        if (first === '+' || first === '-' ||
-                            first === '/' || first === '*') {
-                                arr.shift();
-                                arr[0] = '0';
-                                setOperacion('20');
-                            }
-                        if (last === '+' || last === '-' ||
-                            last === '/' || last === '*') {
-                            arr.pop();
                             let parse = arr.toString().replaceAll(',', '');
                             const resultado = eval(parse);
                             setOperacion(resultado);
