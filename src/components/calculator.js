@@ -66,9 +66,8 @@ const Calculator = () => {
                         if (first === '+' || first === '-' ||
                             first === '/' || first === '*') {
                                 arr.shift();
-                                let parse = arr.toString().replaceAll('', '0');
-                                const resultado = eval(parse);
-                                setOperacion(resultado)
+                                arr[0] = '0';
+                                setOperacion('20');
                             }
                         if (last === '+' || last === '-' ||
                             last === '/' || last === '*') {
