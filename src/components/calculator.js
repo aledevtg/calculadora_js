@@ -62,9 +62,17 @@ const Calculator = () => {
                     if (pos > 0) {
                         let arr = operacion.split('');
                         let last = arr[arr.length - 1];
+                        if (last === '+' || last === '-' ||
+                            last === '/' || last === '*') {
+                            arr.pop();
                             let parse = arr.toString().replaceAll(',', '');
-                            const resultado = eval(parse);
-                            setOperacion(resultado);
+                            let val = parse.length;
+                            if (val > 0){
+                                const resultado = eval(parse);
+                                setOperacion(resultado);
+                            } else {
+                                setOperacion("");
+                            }
                         } 
                     } else {
                         setOperacion("");
