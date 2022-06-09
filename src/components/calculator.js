@@ -73,7 +73,9 @@ const Calculator = () => {
                             } else {
                                 setOperacion("");
                             }
-                        } 
+                        } else if (last === '.'){
+                            setOperacion('0');
+                        }
                     } else {
                         setOperacion("");
                     }
