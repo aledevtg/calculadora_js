@@ -75,12 +75,13 @@ const Calculator = () => {
                             }
                         } else if (last === '.'){
                             setOperacion('0');
+                        } else {
+                            const resultado = eval(operacion);
+                            setOperacion(resultado);
                         }
                     } else {
                         setOperacion("");
                     }
-                    const resultado = eval(operacion);
-                    setOperacion(resultado);
                 }} />
                 <Button label="+" idName="color-btn" accion={() => {
                     setOperacion(`${operacion}+`);
