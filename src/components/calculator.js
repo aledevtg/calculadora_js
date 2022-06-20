@@ -16,6 +16,7 @@ const Calculator = () => {
             </div>
             <div className="btn-1-op" id="num_sim">
                 <Button label="7" accion={() => {
+                    /*Validar que el componente tiene resultado */
                     setOperacion(`${operacion}7`);
                 }} />
                 <Button label="8" accion={() => {
@@ -71,16 +72,19 @@ const Calculator = () => {
                                 const resultado = eval(parse);
                                 setOperacion(resultado);
                             } else {
-                                setOperacion("");
+                                const resultado = '';
+                                setOperacion(resultado);
                             }
                         } else if (last === '.'){
-                            setOperacion('0');
+                            const resultado = '0';
+                            setOperacion(resultado);
                         } else {
                             const resultado = eval(operacion);
                             setOperacion(resultado);
                         }
                     } else {
-                        setOperacion("");
+                        const resultado = '';
+                        setOperacion(resultado);
                     }
                 }} />
                 <Button label="+" idName="color-btn" accion={() => {
