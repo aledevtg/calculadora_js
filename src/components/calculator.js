@@ -79,8 +79,15 @@ const Calculator = () => {
                             const resultado = '0';
                             setOperacion(resultado);
                         } else {
-                            const resultado = eval(operacion);
-                            setOperacion(resultado);
+                            let res = eval(operacion);
+                            if(isNaN(res)){
+                                const resultado = 'Error';
+                                setOperacion(resultado);
+                            } else{
+                                const resultado = res;
+                                setOperacion(resultado);
+                            }
+                            
                         }
                     } else {
                         const resultado = '';
