@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 const Calculator = () => {
     const [operacion, setOperacion] = useState("");
+    const [estado, setEstado] = useState(false);
     return (
         <div className="container">
             <div className="comp-1">
@@ -16,47 +17,107 @@ const Calculator = () => {
             </div>
             <div className="btn-1-op" id="num_sim">
                 <Button label="7" accion={() => {
-                    /*Validar que el componente tiene resultado */
-                    setOperacion(`${operacion}7`);
+                    if (!estado) {
+                        setOperacion(`${operacion}7`);
+                    } else {
+                        setOperacion(`7`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="8" accion={() => {
-                    setOperacion(`${operacion}8`);
+                    if (!estado) {
+                        setOperacion(`${operacion}8`);
+                    } else {
+                        setOperacion(`8`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="9" accion={() => {
-                    setOperacion(`${operacion}9`);
+                    if (!estado) {
+                        setOperacion(`${operacion}9`);
+                    } else {
+                        setOperacion(`9`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="/" idName="color-btn" accion={() => {
-                    setOperacion(`${operacion}/`);
+                    const ultimo = operacion.slice(-1);
+                    if (ultimo !== '*' && ultimo !== '-' && ultimo !== '.'
+                        && ultimo !== '+' && ultimo !== '/') {
+                        setOperacion(`${operacion}/`);
+                    }
                 }} />
                 <Button label="4" accion={() => {
-                    setOperacion(`${operacion}4`);
+                    if (!estado) {
+                        setOperacion(`${operacion}4`);
+                    } else {
+                        setOperacion(`4`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="5" accion={() => {
-                    setOperacion(`${operacion}5`);
+                    if (!estado) {
+                        setOperacion(`${operacion}5`);
+                    } else {
+                        setOperacion(`5`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="6" accion={() => {
-                    setOperacion(`${operacion}6`);
+                    if (!estado) {
+                        setOperacion(`${operacion}6`);
+                    } else {
+                        setOperacion(`6`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="*" idName="color-btn" accion={() => {
-                    setOperacion(`${operacion}*`);
+                    const ultimo = operacion.slice(-1);
+                    if (ultimo !== '*' && ultimo !== '-' && ultimo !== '.'
+                        && ultimo !== '+' && ultimo !== '/') {
+                        setOperacion(`${operacion}*`);
+                    }
                 }} />
                 <Button label="1" accion={() => {
-                    setOperacion(`${operacion}1`);
+                    if (!estado) {
+                        setOperacion(`${operacion}1`);
+                    } else {
+                        setOperacion(`1`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="2" accion={() => {
-                    setOperacion(`${operacion}2`);
+                    if (!estado) {
+                        setOperacion(`${operacion}2`);
+                    } else {
+                        setOperacion(`2`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="3" accion={() => {
-                    setOperacion(`${operacion}3`);
+                    if (!estado) {
+                        setOperacion(`${operacion}3`);
+                    } else {
+                        setOperacion(`3`);
+                        setEstado(false);
+                    }
                 }} />
                 <Button label="-" idName="color-btn" accion={() => {
-                    setOperacion(`${operacion}-`);
+                    const ultimo = operacion.slice(-1);
+                    if (ultimo !== '*' && ultimo !== '-' && ultimo !== '.'
+                        && ultimo !== '+' && ultimo !== '/') {
+                        setOperacion(`${operacion}-`);
+                    }
                 }} />
                 <Button label="0" accion={() => {
                     setOperacion(`${operacion}0`);
                 }} />
                 <Button label="." accion={() => {
-                    setOperacion(`${operacion}.`);
+                    const ultimo = operacion.slice(-1);
+                    if (ultimo !== '*' && ultimo !== '-' && ultimo !== '.'
+                        && ultimo !== '+' && ultimo !== '/') {
+                        setOperacion(`${operacion}.`);
+                    }
                 }} />
                 <Button label="=" idName="color-btn" accion={() => {
                     let pos = operacion.length;
@@ -68,34 +129,50 @@ const Calculator = () => {
                             arr.pop();
                             let parse = arr.toString().replaceAll(',', '');
                             let val = parse.length;
-                            if (val > 0){
+                            if (val > 0) {
                                 const resultado = eval(parse);
                                 setOperacion(resultado);
+                                setEstado(true);
                             } else {
                                 const resultado = '';
                                 setOperacion(resultado);
+                                setEstado(true);
                             }
-                        } else if (last === '.'){
-                            const resultado = '0';
-                            setOperacion(resultado);
+                        } else if (last === '.') {
+                            const val = operacion.length;
+                            if (val < 2) {
+                                const resultado = '0';
+                                setOperacion(resultado);
+                                setEstado(true);
+                            } else {
+                                let resultado = eval(operacion);
+                                setOperacion(resultado);
+                                setEstado(true);
+                            }
                         } else {
                             let res = eval(operacion);
-                            if(isNaN(res)){
+                            if (isNaN(res)) {
                                 const resultado = 'Error';
                                 setOperacion(resultado);
-                            } else{
+                                setEstado(true);
+                            } else {
                                 const resultado = res;
                                 setOperacion(resultado);
+                                setEstado(true);
                             }
-                            
                         }
                     } else {
                         const resultado = '';
                         setOperacion(resultado);
+                        setEstado(true);
                     }
                 }} />
                 <Button label="+" idName="color-btn" accion={() => {
-                    setOperacion(`${operacion}+`);
+                    const ultimo = operacion.slice(-1);
+                    if (ultimo !== '*' && ultimo !== '-' && ultimo !== '.'
+                        && ultimo !== '+' && ultimo !== '/') {
+                        setOperacion(`${operacion}+`);
+                    }
                 }} />
             </div>
         </div>
